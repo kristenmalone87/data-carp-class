@@ -16,3 +16,5 @@ get_size_class<-function(weight){
   }
   return(size_class)
 }
+
+elves<-read.csv("houseelf_earlength_dna_data1.csv", header=TRUE)
