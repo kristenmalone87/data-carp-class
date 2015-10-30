@@ -24,7 +24,7 @@ get_size_class<-function(weight){
 elves<-read.csv("houseelf_earlength_dna_data1.csv", header=TRUE)
 
 
-#Problem 6
+
 
 add_size_class<-function(db){
   data_w_size_class<-
@@ -34,7 +34,15 @@ add_size_class<-function(db){
     mutate(size_class=get_size_class(weight,50))
   return(data_w_size_class)
 }
+
+#Problem 6
 gc_content_fnc<-function(sequence){
-  Gs<-
+  Gs<-str_count(sequence, "G")
+  Cs<-str_count(sequence,"C")
+  seq_length<-str_length(sequence)
+  gc_content<-((Gs+Cs)/seq_length)*100
 }
+
+print(gc_content_fnc(elves$dnaseq))
+
 
