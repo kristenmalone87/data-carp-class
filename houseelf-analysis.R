@@ -43,6 +43,11 @@ gc_content_fnc<-function(sequence){
   gc_content<-((Gs+Cs)/seq_length)*100
 }
 
+get_size_class <- function(seq){
+   #Calculate the GC-content for one or more sequences
+   ear_lengths <- ifelse(seq > 10, "large", "small")
+   return(ear_lengths)
+}
 
 print(gc_content_fnc(elves$dnaseq))
 
