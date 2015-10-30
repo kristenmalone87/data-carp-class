@@ -43,6 +43,7 @@ gc_content_fnc<-function(sequence){
   gc_content<-((Gs+Cs)/seq_length)*100
 }
 
+
 print(gc_content_fnc(elves$dnaseq))
 
 
