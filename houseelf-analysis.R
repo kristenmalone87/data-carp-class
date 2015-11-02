@@ -1,6 +1,8 @@
 ## Assn 9 ##
+#send link to git hub repository to Andrew
 
 library(stringr)
+
 #Problem 2
 #house elf analysis with dr. granger
 
@@ -23,9 +25,6 @@ get_size_class<-function(weight){
 #Problem 4
 elves<-read.csv("houseelf_earlength_dna_data1.csv", header=TRUE)
 
-
-
-
 add_size_class<-function(db){
   data_w_size_class<-
     df %>%
@@ -44,5 +43,6 @@ gc_content_fnc<-function(sequence){
 }
 
 print(gc_content_fnc(elves$dnaseq))
+
 
 
