@@ -40,15 +40,27 @@ gc_content_fnc<-function(sequence){
   Cs<-str_count(sequence,"C")
   seq_length<-str_length(sequence)
   gc_content<-((Gs+Cs)/seq_length)*100
-}
-
-get_size_class <- function(seq){
-   #Calculate the GC-content for one or more sequences
-   ear_lengths <- ifelse(seq > 10, "large", "small")
-   return(ear_lengths)
+  return(gc_content)
 }
 
 print(gc_content_fnc(elves$dnaseq))
 
+#Problem 7 - pull Dr. White's code from github
 
+get_size_class <- function(ear_length){
+  # Calculate the size class for one or more earth lengths
+  ear_lengths <- ifelse(ear_length > 10, "large", "small")
+  return(ear_lengths)
+}
+get_size_class(elves$earlength)
 
+#apply both functions (ear length size class and gc content) to all individuals
+indiv<-elves$id
+for (i in 1:nrow(elves)){
+  size_class[i]<-get_size_class(elves$earlength[i])
+  gc_content[i]<-gc_content_fnc(elves$dnaseq[i])
+  out<-data.frame(elves$id, size_class, gc_content)
+}
+out
+#create csv with data from above functions
+write.csv(out,"elves_size_class_gc_content")
